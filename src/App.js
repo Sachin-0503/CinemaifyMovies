@@ -4,69 +4,81 @@ import MovieInfoComponent from './Components/MovieInfoComponent';
 import { useState } from 'react';
 import axios from 'axios';
 export const API_KEY='89a4a352';
-const Container =styled.div`
-display:flex;
-flex-direction:column;
-`;
-const Header =styled.div`
-display :flex;
-flex-direction:row;
-background-color: black;
-justify-content:space-between;
-color:white;
-padding:10px;
-align-items: center;
-font-size: 25px;
-font-weoght: bold;
-box-shadow: 0 3px 6px 0 #555;
-`;
-const Appname =styled.div`
-display:flex;
-flex-direction:row;
-align-items:center;
-`;
-const MOvieIcon=styled.img`
-width: 48px;
-height: 48px;
-margin: 15px;
- `;
- const SearchBox=styled.div`
- display: flex;
- flex-direction:row;
- padding: 10px 10px;
- background-color: white;
- border-radius: 6px;
- margin-left:20px;
- width: 50%;
- align-items:center;
- `;
- const SearchIcon=styled.img`
-  
- width: 35px;
- height: 35px;
- `;
- const SearchInput =styled.input`
- color:black;
- font-size:16px;
- font-weight: bold;
- border: none;
- outline:none;
- margin-left: left 20px;
- `;
- const Movielistcontainer=styled.div`
-  display: flex;
-  flex-direction: row;
-  flex: wrap;
-  padding:30px;
-  justify-content= space-evenly;
-  align-items:center;
- `;
- const Placeholder = styled.img`
-  width: 120px;
-  height: 120px;
-  margin: 150px;
-  opacity: 50%;
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f5f6fa;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+`;
+
+export const Appname = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+`;
+
+export const MOvieIcon = styled.img`
+  width: 42px;
+  height: 42px;
+  margin-right: 12px;
+`;
+
+export const SearchBox = styled.div`
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 8px 14px;
+  border-radius: 30px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+`;
+
+export const SearchIcon = styled.img`
+  width: 22px;
+  height: 22px;
+  opacity: 0.7;
+`;
+
+export const SearchInput = styled.input`
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin-left: 10px;
+  color: #333;
+
+  ::placeholder {
+    color: #999;
+  }
+`;
+
+export const Movielistcontainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 25px;
+`;
+
+export const Placeholder = styled.img`
+  width: 140px;
+  height: 140px;
+  opacity: 0.3;
+  margin-top: 120px;
 `;
 
 function App() {

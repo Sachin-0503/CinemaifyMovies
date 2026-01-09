@@ -4,56 +4,73 @@ import styled from "styled-components";
 import {API_KEY} from '../App.js';
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  padding: 20px 30px;
+  gap: 30px;
+  padding: 40px;
   justify-content: center;
-  border-bottom: 1px solid lightgray;
+  align-items: flex-start;
+  background: white;
+  margin: 20px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 `;
+
 const CoverImage = styled.img`
+  width: 260px;
+  height: 390px;
   object-fit: cover;
-  height: 350px;
+  border-radius: 14px;
 `;
+
 const InfoColumn = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  max-width: 700px;
 `;
-const MovieName = styled.span`
-  font-size: 22px;
-  font-weight: 600;
-  color: black;
-  margin: 15px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-transform: capitalize;
-  text-overflow: ellipsis;
-  & span {
-    opacity: 0.8;
-  }
-`;
-const MovieInfo = styled.span`
-  font-size: 16px;
-  font-weight: 500;
-  color: black;
-  overflow: hidden;
-  margin: 4px 0;
-  text-transform: capitalize;
-  text-overflow: ellipsis;
 
-  & span {
-    opacity: 0.5;
+const MovieName = styled.div`
+  font-size: 26px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 14px;
+
+  span {
+    font-weight: 500;
+    opacity: 0.85;
   }
 `;
-const Close = styled.span`
-  font-size: 16px;
+
+const MovieInfo = styled.div`
+  font-size: 15px;
+  color: #333;
+  margin: 6px 0;
+  line-height: 1.5;
+
+  span {
+    opacity: 0.75;
+  }
+`;
+
+const Plot = styled.div`
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+`;
+
+const Close = styled.div`
+  font-size: 14px;
   font-weight: 600;
-  color: black;
-  background: lightgray;
-  height: fit-content;
-  padding: 8px;
-  border-radius: 50%;
+  color: #333;
+  background: #e0e0e0;
+  padding: 10px 14px;
+  border-radius: 20px;
   cursor: pointer;
-  opacity: 0.8;
+  align-self: flex-start;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #d3d3d3;
+  }
 `;
 const MovieInfoComponent = (props) => {
   const [movieInfo, setMovieInfo] = useState();
