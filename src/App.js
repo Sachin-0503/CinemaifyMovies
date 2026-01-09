@@ -16,25 +16,41 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 30px;
+  padding: 14px 24px;
   background: linear-gradient(135deg, #141e30, #243b55);
   color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
+  }
 `;
 
 export const Appname = styled.div`
   display: flex;
   align-items: center;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
-  letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
+
 export const MOvieIcon = styled.img`
-  width: 42px;
-  height: 42px;
-  margin-right: 12px;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+
+  @media (max-width: 768px) {
+    width: 34px;
+    height: 34px;
+  }
 `;
+
 
 export const SearchBox = styled.div`
   display: flex;
@@ -43,8 +59,12 @@ export const SearchBox = styled.div`
   padding: 8px 14px;
   border-radius: 30px;
   width: 420px;
-  max-width: 90%;
+  max-width: 100%;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const SearchIcon = styled.img`
@@ -59,26 +79,41 @@ export const SearchInput = styled.input`
   outline: none;
   font-size: 16px;
   margin-left: 10px;
-  color: #333;
 
-  ::placeholder {
-    color: #999;
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 
 export const Movielistcontainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 40px 20px;
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  min-height: 60vh;
+
+  /* Center placeholder when it's the only child */
+  place-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    padding: 16px;
+    gap: 14px;
+  }
 `;
 
 export const Placeholder = styled.img`
   width: 140px;
   height: 140px;
   opacity: 0.3;
-  margin-top: 120px;
+`;
+
+export const EmptyState = styled.div`
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
 `;
 
 function App() {
@@ -123,7 +158,9 @@ function App() {
      onMovieSelect={onMovieSelect}/>
     ))
   ) : (
-    <Placeholder src="movieIcon.svg" />
+     <EmptyState>
+      <Placeholder src="movieIcon.svg" />
+    </EmptyState>
   )}
     </Movielistcontainer>
   </Container>) ;
